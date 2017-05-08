@@ -1,5 +1,6 @@
 class BidsController < ApplicationController
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
+  before_action :set_bids, only: [:index, :show]
 
   # GET /bids
   # GET /bids.json
@@ -10,7 +11,21 @@ class BidsController < ApplicationController
   # GET /bids/1
   # GET /bids/1.json
   def show
-    @bids = Bid.all
+    @bidders = @bids.select{ |x| x.item_id == @bid.item_id }.map{ |x| x.user.email }
+    # shuffle bidders (7) times and pick first from the array
+    7.times { @shuffled = @bidders.shuffle }
+    @winner = @shuffled.first
+  end
+
+  def send_winner_email
+    # this needs to be sent to the winner. Set User.first for testing.
+
+    # access the :winner param from the bid#show to pass in @winner
+    @winner = params[:winner]
+
+    UserMailer.send_winner_email(@winner).deliver
+    flash[:notice] = "Email has been successfully sent to: #{@winner}"
+    redirect_to bids_path
   end
 
   # GET /bids/new
@@ -66,6 +81,10 @@ class BidsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_bid
       @bid = Bid.find(params[:id])
+    end
+
+    def set_bids
+      @bids = Bid.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
