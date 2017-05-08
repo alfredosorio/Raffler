@@ -15,6 +15,14 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @bidder = current_user
+  end
+
+  def create_bid
+    @item = params[:item]
+    @bidder = current_user
+    @new_bid = Bid.create(user_id: @bidder.id, item_id: @item)
+    redirect_to item_path(@item), notice: 'Bid was successfully created.'
   end
 
   # GET /items/new
@@ -74,6 +82,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :description, :query, :price_cents)
+      params.require(:item).permit(:name, :description, :query, :price_cents, :bid_id)
     end
 end

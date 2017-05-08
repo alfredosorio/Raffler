@@ -1,8 +1,11 @@
-<p id="notice"><%= notice %></p>
+<h1>
+  <%= @item.name %>
+</h1>
+
 
 <p>
-  <strong>Name:</strong>
-  <%= @item.name %>
+  <strong>User:</strong>
+  <%= @bidder.email %>
 </p>
 
 <p>
@@ -10,10 +13,10 @@
   <%= @item.description %>
 </p>
 
-<p>
-  <strong>Bid Price:</strong>
-  <%= number_to_currency(@item.price_cents) %>
-</p>
+<!-- Test Create Bid Button -->
+<%= link_to 'Create Bid', controller: "items", action: "create_bid", item: @item.id %>
+
+<br />
 
 <%= form_tag charges_path do %>
   <article>

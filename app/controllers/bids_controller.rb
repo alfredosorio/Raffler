@@ -12,17 +12,20 @@ class BidsController < ApplicationController
   # GET /bids/1.json
   def show
     @bidders = @bids.select{ |x| x.item_id == @bid.item_id }.map{ |x| x.user.email }
+
     # shuffle bidders (7) times and pick first from the array
     7.times { @shuffled = @bidders.shuffle }
     @winner = @shuffled.first
+
+    # get winner after shuffling and pass through as variable in send_winner_email method
+    # To TOGGLE: comment line below, and uncomment @winner = params[:winner]
+    # send_winner_email(@winner)
   end
 
-  def send_winner_email
-    # this needs to be sent to the winner. Set User.first for testing.
+  def send_winner_email(winner)
 
     # access the :winner param from the bid#show to pass in @winner
     @winner = params[:winner]
-
     UserMailer.send_winner_email(@winner).deliver
     flash[:notice] = "Email has been successfully sent to: #{@winner}"
     redirect_to bids_path

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Bids</h1>
+<h1>Bids Admin Console</h1>
 
 <%= form_tag(items_path, method: :get) do %>
   <%= text_field_tag :query %>
@@ -20,9 +20,10 @@
     <% @bids.each do |bid| %>
       <tr>
         <td><%= bid.user.email %></td>
+
+        <!-- Display the item IF it has a bid -->
         <td><%= bid.item.name %></td>
-        <td><%= link_to 'Draw Winner', winner_path(bid) %></td>
-        <td><%= link_to 'Show', bid %></td>
+        <td><%= link_to 'Draw Winner', bid %></td>
         <td><%= link_to 'Edit', edit_bid_path(bid) %></td>
         <td><%= link_to 'Destroy', bid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

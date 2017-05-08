@@ -1,14 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @bid.user.email %>
-</p>
+<h1> Draw for item: <%= @bid.item.name %> </h1>
 
-<p>
-  <strong>Item:</strong>
-  <%= @bid.item.name %>
-</p>
+<h2> Bidders: </h2>
 
-<%= link_to 'Edit', edit_bid_path(@bid) %> |
-<%= link_to 'Back', bids_path %>
+<% @bidders.each do |show| %>
+  <ul>
+    <%= show %>
+  </ul>
+<% end %>
+
+<h2> Winner Drawn: <%= @winner %> </h2>
+
+<%= link_to 'Send Winner Email', controller: "bids", action: "send_winner_email", winner: @winner %>
+<br >
+<%= link_to 'Send Seller Notification', :controller => "winners", :action => "send_seller_notification" %>
