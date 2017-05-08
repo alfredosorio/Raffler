@@ -13,6 +13,7 @@
 <h2> Winner Drawn: <%= @winner = @bidders.first %> </h2>
 
 
+
 <%= link_to 'Send Winner Email', :controller => "winners", :action => "send_winner_email" %>
 <br >
 <%= link_to 'Send Seller Notification', :controller => "winners", :action => "send_seller_notification" %>
