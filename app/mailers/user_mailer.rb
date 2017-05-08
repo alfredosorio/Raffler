@@ -1,0 +1,15 @@
+class UserMailer < ApplicationMailer
+ default from: 'postmaster@sandbox297954caf0144383a8e35855a9618348.mailgun.org'
+
+ def send_winner_email(user)
+   @user = user
+   @url  = 'http://localhost:3000/users/sign_in'
+   mail(to: 'rafflernotifications@gmail.com', subject: "Congratulations #{@user.email}! You\'ve won a draw on Raffler!")
+ end
+
+ def send_seller_notification(user)
+   @user = user
+   @url  = 'http://localhost:3000/users/sign_in'
+   mail(to: 'rafflernotifications@gmail.com', subject: "#{@user.email} has won your item on Raffler!")
+ end
+end
