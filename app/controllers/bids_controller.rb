@@ -18,11 +18,11 @@ class BidsController < ApplicationController
     @winner = @shuffled.first
 
     # get winner after shuffling and pass through as variable in send_winner_email method
-    # To TOGGLE: comment line below, and uncomment @winner = params[:winner]
+    # To TOGGLE: comment line below, uncomment @winner = params[:winner], uncomment #(winner)
     # send_winner_email(@winner)
   end
 
-  def send_winner_email(winner)
+  def send_winner_email#(winner)
 
     # access the :winner param from the bid#show to pass in @winner
     @winner = params[:winner]

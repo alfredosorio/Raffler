@@ -7,6 +7,7 @@ class ChargesController < ApplicationController
     # Amount in cents
     @amount = 500
 
+
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source  => params[:stripeToken]
@@ -19,6 +20,11 @@ class ChargesController < ApplicationController
       :currency    => 'aud',
       :receipt_email => "rafflernotifications@gmail.com",
     )
+
+    # I need to pass through the current @item.id variable in here
+    @item = params[:item]
+    @bidder = current_user
+    @new_bid = Bid.create(user_id: @bidder.id, item_id: @item)
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
