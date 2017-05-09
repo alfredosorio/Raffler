@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
    mail(to: 'rafflernotifications@gmail.com', subject: "Congratulations #{@winner}! You\'ve won a draw on Raffler!")
  end
 
- def send_seller_notification(user)
+ def send_seller_email(seller)
    @user = user
    @url  = 'http://localhost:3000/users/sign_in'
    mail(to: 'rafflernotifications@gmail.com', subject: "#{@user.email} has won your item on Raffler!")
@@ -17,6 +17,6 @@ class UserMailer < ApplicationMailer
    @bidder = bidder
    @amount = amount
    @url  = 'http://localhost:3000/users/sign_in'
-   mail(to: 'rafflernotifications@gmail.com', subject: "#Thank you for your purchase on Raffler {@bidder.email}!")
+   mail(to: 'rafflernotifications@gmail.com', subject: "#Thank you for your purchase on Raffler #{@bidder.email}!")
  end
 end

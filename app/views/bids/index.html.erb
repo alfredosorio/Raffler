@@ -22,10 +22,10 @@
         <td><%= bid.user.email %></td>
 
         <!-- Display the item IF it has a bid -->
-        <td><%# = bid.item.name %></td>
-        <td><%= link_to 'Draw Winner', bid %></td>
-        <td><%= link_to 'Edit', edit_bid_path(bid) %></td>
-        <td><%= link_to 'Destroy', bid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= bid.item.name %></td>
+        <td><%= link_to 'Draw Details', bid %></td>
+        <td><%#= link_to 'Edit', edit_bid_path(bid) %></td>
+        <td><%#= link_to 'Destroy', bid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html>
- <head>
-   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
- </head>
- <body>
-   <h1>Hi, <%= @bidder.email %> </h1>
-     <h2>Thank you for your purchase!</h2>
 
-     <hr>
-    <h2>
-      Tax Invoice
-    </h2>
+<head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
 
-    <p>
-      Price: <%= @amount %>
+<body>
+
+    <h1>Hi,
+      <%= @bidder.email %>
+    </h1>
+    <h2>Thank you for your purchase!</h2>
+
+    <hr>
+
+    <h2>Tax Invoice</h2>
+
+    <p>Price:
+        <%=@ amount %>
     </p>
 
-   <p>
-     To login to the site, just follow this <a href="<%= @url %>">link</a>.
-   </p>
-   <p>Thank you for contributing to Raffler and have a great day!</p>
- </body>
+    <p>To login to the site, just follow this
+        <a href="<%= @url %>">link</a>.</p>
+
+    <p>Thank you for contributing to Raffler and have a great day!</p>
+</body>
+
 </html>

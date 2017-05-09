@@ -1,16 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1> Draw for item: <%= @bid.item.name %> </h1>
+<h2> Draw for item: <%= @bid.item.name %> </h2>
+<h3> Item Price: <%= number_to_currency(@bid.item.price) %> </h3>
+<h3> Total Draw Value: <%= number_to_currency(@bidders.count * @bid.item.price) %> </h3>
+<h3> Winner Drawn: <%= @winner %> </h3>
 
-<h2> Bidders: </h2>
-
+<h3> Bidders Log: </h3>
 <% @bidders.each do |show| %>
-  <ul>
-    <%= show %>
-  </ul>
+    <li><%= show %></li>
 <% end %>
 
-<h2> Winner Drawn: <%= @winner %> </h2>
+<br>
 
 <%= link_to 'Send Winner Email', controller: "bids", action: "send_winner_email", winner: @winner %>
 <br >

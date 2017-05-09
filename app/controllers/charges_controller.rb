@@ -31,9 +31,9 @@ after_action :create_bid, only: [:create]
   end
 
   def send_bid_receipt(amount)
-    @bid_email = current_user
-    UserMailer.send_bid_receipt(@bid_email, @amount).deliver
-    flash[:notice] = "Email has been successfully sent to: #{@bid_email}"
+    @bidder = current_user
+    UserMailer.send_bid_receipt(@bidder, @amount).deliver
+    flash[:notice] = "Email has been sent to: #{@bidder.email}"
     redirect_to items_path
   end
 

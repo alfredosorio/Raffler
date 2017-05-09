@@ -27,7 +27,7 @@ class BidsController < ApplicationController
     # access the :winner param from the bid#show to pass in @winner
     @winner = params[:winner]
     UserMailer.send_winner_email(@winner).deliver
-    flash[:notice] = "Email has been successfully sent to: #{@winner}"
+    flash[:notice] = "Email has been sent to: #{@winner}"
     redirect_to bids_path
   end
 
