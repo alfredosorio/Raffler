@@ -12,4 +12,11 @@ class UserMailer < ApplicationMailer
    @url  = 'http://localhost:3000/users/sign_in'
    mail(to: 'rafflernotifications@gmail.com', subject: "#{@user.email} has won your item on Raffler!")
  end
+
+ def send_bid_receipt(bidder, amount)
+   @bidder = bidder
+   @amount = amount
+   @url  = 'http://localhost:3000/users/sign_in'
+   mail(to: 'rafflernotifications@gmail.com', subject: "#Thank you for your purchase on Raffler {@bidder.email}!")
+ end
 end
