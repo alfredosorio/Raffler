@@ -23,16 +23,16 @@ after_action :create_bid, only: [:create]
     )
 
     create_bid
-    send_bid_receipt(@amount)
+    send_bid_receipt(@amount, @item)
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to items_path
   end
 
-  def send_bid_receipt(amount)
+  def send_bid_receipt(amount, item)
     @bidder = current_user
-    UserMailer.send_bid_receipt(@bidder, @amount).deliver
+    UserMailer.send_bid_receipt(@bidder, @amount, @item).deliver
     flash[:notice] = "Email has been sent to: #{@bidder.email}"
     redirect_to items_path
   end

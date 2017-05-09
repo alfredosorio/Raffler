@@ -16,8 +16,16 @@
 
     <h2>Tax Invoice</h2>
 
-    <p>Price:
-        <%=@ amount %>
+    <p>Item:
+        <%= @item.name %>
+    </p>
+
+    <p>Tax Invoice Issue Date:
+        <%= Time.now %>
+    </p>
+
+    <p>Total:
+        <%= number_to_currency(@amount / 100) %>
     </p>
 
     <p>To login to the site, just follow this
