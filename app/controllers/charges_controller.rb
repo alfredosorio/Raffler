@@ -17,7 +17,7 @@ after_action :create_bid, only: [:create]
     charge = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @amount,
-      :description => 'Rails Stripe customer',
+      :description => @item.name,
       :currency    => "AUD",
       :receipt_email => "rafflernotifications@gmail.com",
     )
@@ -33,7 +33,7 @@ after_action :create_bid, only: [:create]
   def send_bid_receipt(amount)
     @bid_email = current_user
     UserMailer.send_bid_receipt(@bid_email, @amount).deliver
-    flash[:notice] = "Email has been successfully sent to: #{@bidder.email}"
+    flash[:notice] = "Email has been successfully sent to: #{@bid_email}"
     redirect_to items_path
   end
 
