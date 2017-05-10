@@ -2,16 +2,17 @@
 
 <h2> Draw for item: <%= @bid.item.name %> </h2>
 <h3> Item Price: <%= number_to_currency(@bid.item.price) %> </h3>
-<h3> Total Draw Value: <%= number_to_currency(@bidders.count * @bid.item.price) %> </h3>
-<h3> Winner Drawn: <%= @winner %> </h3>
+<h3> Seller: <%= @bid.seller.profile.username %> </h3>
+<h3> Total Draw Value: <%= number_to_currency(@draw_total) %> </h3>
+<h3> Winner Drawn: <%= @winner.profile.username %> </h3>
 
 <h3> Bidders Log: </h3>
 <% @bidders.each do |show| %>
-    <li><%= show %></li>
+    <li><%= show.profile.username %></li>
 <% end %>
 
 <br>
 
-<%= link_to 'Send Winner Email', controller: "bids", action: "send_winner_email", winner: @winner %>
+<%= link_to 'Send Winner Email', controller: "bids", action: "send_winner_email", winner: @winner, item: @bid.item %>
 <br >
-<%= link_to 'Send Seller Notification', :controller => "winners", :action => "send_seller_notification" %>
+<%= link_to 'Send Seller Email', controller: "bids", action: "send_seller_email", winner: @winner, item: @bid.item, draw_total: @draw_total %>

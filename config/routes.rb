@@ -13,8 +13,7 @@ Rails.application.routes.draw do
   # Test Create Bid
   get :create_bid, to: 'items#create_bid', as: :create_bid
 
-  # ActionMailer
+  # ActionMailer Test Link
   get :send_winner_email, to: 'bids#send_winner_email', as: :send_winner_email
-  # get :send_winner_email, to: 'winners#send_winner_email', as: :send_winner_email
-  get :send_seller_notification, to: 'winners#send_seller_notification', as: :send_seller_notification
+  get :send_seller_email, to: 'bids#send_seller_email', as: :send_seller_email
 end

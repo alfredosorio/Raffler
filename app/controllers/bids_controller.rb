@@ -11,24 +11,32 @@ class BidsController < ApplicationController
   # GET /bids/1
   # GET /bids/1.json
   def show
-    @bidders = @bids.select{ |x| x.item_id == @bid.item_id }.map{ |x| x.user.email }
+    @bidders = @bids.select{ |x| x.item_id == @bid.item_id }.map{ |x| x.user }
+    @draw_total = @bidders.count * @bid.item.price
+    @item = @bid.item
 
     # shuffle bidders (7) times and pick first from the array
     7.times { @shuffled = @bidders.shuffle }
     @winner = @shuffled.first
 
-    # get winner after shuffling and pass through as variable in send_winner_email method
     # To TOGGLE: comment line below, uncomment @winner = params[:winner], uncomment #(winner)
-    # send_winner_email(@winner)
+    # send_winner_email(@item, @winner)
+    # send_seller_email(@item, @winner, @draw_total)
   end
 
-  def send_winner_email#(winner)
+  def send_winner_email#(item, winner)
+    @winner = Bid.find(params[:winner])
+    @item = Item.find(params[:item])
+    UserMailer.send_winner_email(@item, @winner).deliver
+    redirect_to bids_path, notice: "Email has been sent to: #{@winner.user.email}"
+  end
 
-    # access the :winner param from the bid#show to pass in @winner
-    @winner = params[:winner]
-    UserMailer.send_winner_email(@winner).deliver
-    flash[:notice] = "Email has been sent to: #{@winner}"
-    redirect_to bids_path
+  def send_seller_email#(item, winner, draw_total)
+    @item = Item.find(params[:item])
+    @winner = Bid.find(params[:winner])
+    @draw_total = params[:draw_total]
+    UserMailer.send_seller_email(@item, @winner, @draw_total).deliver
+    redirect_to bids_path, notice: "Emails have been sent to: #{@winner.user.email} and #{@item.seller.user.email}"
   end
 
   # GET /bids/new
