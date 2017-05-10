@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :sellers
+  resources :profiles
   resources :bids
   resources :items
   devise_for :users

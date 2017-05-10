@@ -3,4 +3,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :bids
+  has_one :seller
+  belongs_to :profile
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502031633) do
+ActiveRecord::Schema.define(version: 20170510064834) do
 
   create_table "bids", force: :cascade do |t|
     t.integer  "user_id"
@@ -27,6 +27,26 @@ ActiveRecord::Schema.define(version: 20170502031633) do
     t.integer  "price"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "seller_id"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "username"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sellers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "seller_rating"
+    t.integer  "item_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["item_id"], name: "index_sellers_on_item_id"
+    t.index ["user_id"], name: "index_sellers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,7 +62,9 @@ ActiveRecord::Schema.define(version: 20170502031633) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "profile_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["profile_id"], name: "index_users_on_profile_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

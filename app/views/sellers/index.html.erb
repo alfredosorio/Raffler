@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sellers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Seller rating</th>
+      <th>Item</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sellers.each do |seller| %>
+      <tr>
+        <td><%= seller.user %></td>
+        <td><%= seller.seller_rating %></td>
+        <td><%= seller.item %></td>
+        <td><%= link_to 'Show', seller %></td>
+        <td><%= link_to 'Edit', edit_seller_path(seller) %></td>
+        <td><%= link_to 'Destroy', seller, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Seller', new_seller_path %>
