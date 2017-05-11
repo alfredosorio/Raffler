@@ -26,6 +26,7 @@ gem 'devise'
 gem 'figaro'
 gem 'stripe'
 gem "paperclip", "~> 5.0.0"
+gem 'aws-sdk', '~> 2.3'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
