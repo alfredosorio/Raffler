@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <h2> Draw for item: <%= @bid.item.name %> </h2>
+<%= image_tag @bid.item.item_image.url(:medium) %>
 <h3> Bid Price: <%= number_to_currency(@bid.item.price) %> </h3>
 <h3> Seller: <%= @bid.seller.profile.username %> </h3>
 <h3> Total Draw Value: <%= number_to_currency(@draw_total) %> </h3>
 <h3> Winner Drawn: <%= @winner.profile.username %> </h3>
 
-<h3> Bidders Log: </h3>
+<h3> Active Bidders: </h3>
 <% @bidders.each do |show| %>
     <li><%= show.profile.username %></li>
 <% end %>

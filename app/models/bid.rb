@@ -4,6 +4,4 @@ class Bid < ApplicationRecord
 
   has_one :seller, through: :item
   has_one :profile, through: :user
-
-  validates :user_id, uniqueness: true
 end

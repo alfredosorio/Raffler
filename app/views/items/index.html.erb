@@ -9,18 +9,20 @@
 
 <h1>Items Feed</h1>
 
-<table>
-      <tbody>
-        <% @items.each do |item| %>
-          <tr>
-            <td><%= image_tag item.item_image.url(:thumb) %></td>
-            <td><p><%= link_to "#{item.name}", item %></p></td>
-            <td><p> Seller: <%= item.seller.profile.username %></p></td>
-            <td><p><%= number_to_currency(item.price) %></p></td>
-          </tr>
-      </tbody>
-    </table>
-  <hr />
+<hr />
+
+  <% @items.each do |item| %>
+    <table>
+        <tbody>
+            <tr>
+              <td><%= image_tag item.item_image.url(:thumb) %></td>
+              <td><p><%= link_to "#{item.name}", item %></p></td>
+              <td><p> Seller: <%= item.seller.profile.username %></p></td>
+              <td><p><%= number_to_currency(item.price) %></p></td>
+            </tr>
+        </tbody>
+      </table>
+    <hr />
 <% end %>
 
 <br>

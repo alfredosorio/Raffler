@@ -12,4 +12,10 @@
     <small>Become a seller today!</small>
   <%= link_to 'Register', new_seller_path  %>
 
+<br />
+
+<!-- Link to New Seller Dashboard -->
+<small>Access your dashboard here:</small>
+<%= link_to 'Seller Dashboard', seller_path(current_user.id) %>
+
 <hr />

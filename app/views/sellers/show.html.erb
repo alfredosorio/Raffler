@@ -4,9 +4,24 @@
 
 <h2><%= @seller.profile.first_name %> <%= @seller.profile.last_name %></h2>
 
-<p>
-  <strong>Rating:</strong>
+<h2>
+  <strong>Seller Rating:</strong>
   <%= @seller.seller_rating %>
-</p>
+</h2>
+
+<% @seller.items.each do |item| %>
+  <table>
+      <tbody>
+          <tr>
+            <td><%= image_tag item.item_image.url(:thumb) %></td>
+            <td><p><%= link_to "#{item.name}", item %></p></td>
+            <td><p> Seller: <%= item.seller.profile.username %></p></td>
+            <td><p><%= number_to_currency(item.price) %></p></td>
+            <td><p><%= link_to 'Draw Item', bid_path(item.id) %></p></td>
+          </tr>
+      </tbody>
+    </table>
+  <hr />
+<% end %>
 
 <%= link_to 'Sell An Item', new_item_path %>
