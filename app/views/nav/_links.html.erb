@@ -1,8 +1,15 @@
 <h1> <%= link_to 'Raffler', items_path %> </h1>
 
-<% if user_signed_in? %>
-  <small>You are currently signed in as: <strong><%= @user.email %></strong></small>
+<!-- Main Header and User Signed In Link -->
+  <% if (user_signed_in?) && !(current_page?(new_profile_path)) %>
+    <small>You are currently signed in as: <strong><%= current_user.profile.username %></strong></small>
   <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 <% end %>
+
+<br />
+
+<!-- Link to New Seller Form -->
+    <small>Become a seller today!</small>
+  <%= link_to 'Register', new_seller_path  %>
 
 <hr />

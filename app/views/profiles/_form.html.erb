@@ -14,7 +14,9 @@
   <div class="field">
     <%= f.label :username %>
     <%= f.text_field :username %>
+    <small>Lowercase characters only.</small>
   </div>
+
 
   <div class="field">
     <%= f.label :first_name %>
@@ -26,7 +28,9 @@
     <%= f.text_field :last_name %>
   </div>
 
+  <small>* Your first and/or last name will not be displayed publicly.</small>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Complete Raffler Registration' %>
   </div>
 <% end %>

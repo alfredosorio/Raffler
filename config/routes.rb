@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   resources :profiles
   resources :bids
   resources :items
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
 
   # Stripe
   resources :charges
 
-  # Test Create Bid
-  get :create_bid, to: 'items#create_bid', as: :create_bid
+  # Static Pages
+  root "pages#welcome", page: "welcome"
 
   # ActionMailer Test Links
   get :send_winner_email, to: 'bids#send_winner_email', as: :send_winner_email

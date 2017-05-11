@@ -1,14 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @seller.user_id %>
-</p>
+<h1>Your Seller Dashboard</h1>
+
+<h2><%= @seller.profile.first_name %> <%= @seller.profile.last_name %></h2>
 
 <p>
-  <strong>Seller rating:</strong>
+  <strong>Rating:</strong>
   <%= @seller.seller_rating %>
 </p>
 
-<%= link_to 'Edit', edit_seller_path(@seller) %> |
-<%= link_to 'Back', sellers_path %>
+<%= link_to 'Sell An Item', new_item_path %>

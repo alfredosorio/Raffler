@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Items</h1>
-
 <%= form_tag(items_path, method: :get) do %>
   <%= text_field_tag :query %>
   <%= submit_tag 'Search Item' %>
 <% end %>
+
+<br />
+
+<h1>Items Feed</h1>
 
 <table>
       <tbody>
         <% @items.each do |item| %>
           <tr>
             <td><%= image_tag item.item_image.url(:thumb) %></td>
-            <td><%= link_to "#{item.name}", item %></td>
-            <td><%= number_to_currency(item.price) %></td>
-            <td><%#= link_to 'Show', item %></td>
-            <td><%#= link_to 'Edit', edit_item_path(item) %></td>
-            <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><p><%= link_to "#{item.name}", item %></p></td>
+            <td><p> Seller: <%= item.seller.profile.username %></p></td>
+            <td><p><%= number_to_currency(item.price) %></p></td>
           </tr>
       </tbody>
     </table>

@@ -25,10 +25,11 @@ class SellersController < ApplicationController
   # POST /sellers.json
   def create
     @seller = Seller.new(seller_params)
+    @seller.user_id = current_user.id
 
     respond_to do |format|
       if @seller.save
-        format.html { redirect_to @seller, notice: 'Seller was successfully created.' }
+        format.html { redirect_to @seller, notice: "Congratulations, #{@seller.profile.first_name}! You are now a registered as a Seller on Raffler" }
         format.json { render :show, status: :created, location: @seller }
       else
         format.html { render :new }
@@ -69,6 +70,6 @@ class SellersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def seller_params
-      params.require(:seller).permit(:user_id, :seller_rating, :item_id)
+      params.permit(:user_id)
     end
 end

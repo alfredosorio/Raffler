@@ -50,9 +50,9 @@ ActiveRecord::Schema.define(version: 20170510112919) do
 
   create_table "sellers", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "seller_rating"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "seller_rating", default: 0
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.index ["user_id"], name: "index_sellers_on_user_id", using: :btree
   end
 
@@ -73,4 +73,9 @@ ActiveRecord::Schema.define(version: 20170510112919) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "bids", "items"
+  add_foreign_key "bids", "users"
+  add_foreign_key "items", "sellers"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "sellers", "users"
 end
