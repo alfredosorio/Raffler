@@ -1,6 +1,19 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Configure ActionMailer with MailGun
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :authentication =>    :plain,
+    :address =>           "smtp.mailgun.org",
+    :port =>              587,
+    :domain =>            "sandbox297954caf0144383a8e35855a9618348.mailgun.org",
+    :user_name =>         "postmaster@sandbox297954caf0144383a8e35855a9618348.mailgun.org",
+    :password =>          ENV["MAILGUN_PASSWORD"]
+  }
+
+  config.action_mailer.smtp_settings
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
