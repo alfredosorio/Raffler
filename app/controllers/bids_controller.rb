@@ -36,7 +36,7 @@ class BidsController < ApplicationController
     @winner = Bid.find(params[:winner])
     @draw_total = params[:draw_total]
     UserMailer.send_seller_email(@item, @winner, @draw_total).deliver
-    redirect_to bids_path, notice: "Emails have been sent to: #{@winner.user.email} and #{@item.seller.user.email}"
+    redirect_to bids_path, notice: "Email has been sent to: #{@item.seller.user.email}"
   end
 
   # GET /bids/new

@@ -25,9 +25,9 @@ class SellersController < ApplicationController
   # POST /sellers.json
   def create
     @seller = Seller.new(seller_params)
-    @seller.user_id = current_user.id
 
     respond_to do |format|
+      @seller.user_id = current_user.id
       if @seller.save
         format.html { redirect_to @seller, notice: "Congratulations, #{@seller.profile.first_name}! You are now a registered as a Seller on Raffler" }
         format.json { render :show, status: :created, location: @seller }
