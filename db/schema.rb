@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20170510112919) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bids", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_bids_on_item_id"
-    t.index ["user_id"], name: "index_bids_on_user_id"
+    t.index ["item_id"], name: "index_bids_on_item_id", using: :btree
+    t.index ["user_id"], name: "index_bids_on_user_id", using: :btree
   end
 
   create_table "items", force: :cascade do |t|
@@ -32,7 +35,7 @@ ActiveRecord::Schema.define(version: 20170510112919) do
     t.string   "item_image_content_type"
     t.integer  "item_image_file_size"
     t.datetime "item_image_updated_at"
-    t.index ["seller_id"], name: "index_items_on_seller_id"
+    t.index ["seller_id"], name: "index_items_on_seller_id", using: :btree
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -42,7 +45,7 @@ ActiveRecord::Schema.define(version: 20170510112919) do
     t.string   "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_profiles_on_user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
   create_table "sellers", force: :cascade do |t|
@@ -50,7 +53,7 @@ ActiveRecord::Schema.define(version: 20170510112919) do
     t.integer  "seller_rating"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["user_id"], name: "index_sellers_on_user_id"
+    t.index ["user_id"], name: "index_sellers_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,8 +69,8 @@ ActiveRecord::Schema.define(version: 20170510112919) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
 end
