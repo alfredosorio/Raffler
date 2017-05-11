@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170510064834) do
+ActiveRecord::Schema.define(version: 20170510112919) do
 
   create_table "bids", force: :cascade do |t|
     t.integer  "user_id"
@@ -22,21 +22,27 @@ ActiveRecord::Schema.define(version: 20170510064834) do
   end
 
   create_table "items", force: :cascade do |t|
+    t.integer  "seller_id"
     t.string   "name"
     t.text     "description"
     t.integer  "price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "seller_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "item_image_file_name"
+    t.string   "item_image_content_type"
+    t.integer  "item_image_file_size"
+    t.datetime "item_image_updated_at"
     t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "username"
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "sellers", force: :cascade do |t|
@@ -60,9 +66,7 @@ ActiveRecord::Schema.define(version: 20170510064834) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "profile_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["profile_id"], name: "index_users_on_profile_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

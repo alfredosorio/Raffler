@@ -21,7 +21,22 @@
     <%= f.text_area :description %>
   </div>
 
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.file_field :item_image %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<%#= image_tag @item.item_image.url %>
+<%#= image_tag @item.item_image.url(:medium) %>
+<%#= image_tag @item.item_image.url(:thumb) %>
+
+<hr />

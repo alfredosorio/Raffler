@@ -22,6 +22,6 @@ class UserMailer < ApplicationMailer
    @amount = amount
    @item = item
    @url  = 'http://localhost:3000/users/sign_in'
-   mail(to: 'rafflernotifications@gmail.com', subject: "#Thank you for your purchase on Raffler #{@bidder.profile.first_name}!")
+   mail(to: 'rafflernotifications@gmail.com', subject: "Thank you for your purchase on Raffler #{@bidder.profile.first_name}!")
  end
 end

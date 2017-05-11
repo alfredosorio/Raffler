@@ -4,5 +4,5 @@ class User < ApplicationRecord
 
   has_many :bids
   has_one :seller
-  belongs_to :profile
+  has_one :profile
 end

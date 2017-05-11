@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
   # GET /items/1.json
   def show
     @bidder = current_user
+    @stripe_price = @item.price * 100
   end
 
   def create_bid
@@ -38,6 +39,7 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
+    @item.seller_id = current_user.id
 
     respond_to do |format|
       if @item.save
@@ -69,7 +71,7 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to items_url, notice: 'Item was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -82,6 +84,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :description, :query, :price, :bid_id)
+      params.require(:item).permit(:name, :description, :query, :price, :bid_id, :item_image)
     end
 end

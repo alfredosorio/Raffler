@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h2> Draw for item: <%= @bid.item.name %> </h2>
-<h3> Item Price: <%= number_to_currency(@bid.item.price) %> </h3>
+<h3> Bid Price: <%= number_to_currency(@bid.item.price) %> </h3>
 <h3> Seller: <%= @bid.seller.profile.username %> </h3>
 <h3> Total Draw Value: <%= number_to_currency(@draw_total) %> </h3>
 <h3> Winner Drawn: <%= @winner.profile.username %> </h3>

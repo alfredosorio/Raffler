@@ -1,37 +1,24 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 
 <body>
+  <h1>Hi, <%= @bidder.profile.first_name %></h1>
+  <h2>Thank you for your recent purchase on Raffler!</h2>
+  <h2>Your tax invoice can be viewed below:</h2>
 
-    <h1>Hi,
-      <%= @bidder.profile.first_name %>
-    </h1>
-    <h2>Thank you for your recent purchase on Raffler!</h2>
+<hr>
 
-    <hr>
+  <h2>Tax Invoice</h2>
+    <p><strong>Item:</strong> <%= @item.name %></p>
+    <p><strong>Tax Invoice Issue Date:</strong> <%= Time.now.strftime("%d %B, %Y") %></p>
+    <p><strong>Total:</strong> <%= number_to_currency(@amount / 100) %></p>
 
-    <h2>Tax Invoice</h2>
+<hr>
 
-    <p>Item:
-        <%= @item.name %>
-    </p>
-
-    <p>Tax Invoice Issue Date:
-        <%= Time.now.strftime("%d %B, %Y") %>
-    </p>
-
-    <p>Total:
-        <%= number_to_currency(@amount / 100) %>
-    </p>
-
-    <p>To login to the site, just follow this
-        <a href="<%= @url %>">link</a>.</p>
-
-    <p>Thank you for contributing to Raffler and have a great day!</p>
+  <p>To login to the site, just follow this <a href="<%= @url %>">link</a></p>
+  <p>Thank you for contributing to Raffler and have a great day!</p>
 </body>
-
 </html>

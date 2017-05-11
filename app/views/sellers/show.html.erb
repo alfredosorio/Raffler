@@ -2,17 +2,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @seller.user %>
+  <%= @seller.user_id %>
 </p>
 
 <p>
   <strong>Seller rating:</strong>
   <%= @seller.seller_rating %>
-</p>
-
-<p>
-  <strong>Item:</strong>
-  <%= @seller.item %>
 </p>
 
 <%= link_to 'Edit', edit_seller_path(@seller) %> |

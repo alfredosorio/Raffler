@@ -3,19 +3,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-# Configure ActionMailer with Gmail account settings:
-#  config.action_mailer.delivery_method = :smtp
-#  config.action_mailer.smtp_settings = {
-#    address:              'smtp.gmail.com',
-#    port:                 587,
-#    domain:               'gmail.com',
-#    user_name:            ENV["GMAIL_USERNAME"],
-#    password:             ENV["GMAIL_PASSWORD"],
-#    authentication:       'plain',
-#    enable_starttls_auto: true
-#  }
-
-# Configure ActionMailer with MailGun
+  # Configure ActionMailer with MailGun
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :authentication =>    :plain,
@@ -27,6 +15,9 @@ Rails.application.configure do
   }
 
   config.action_mailer.smtp_settings
+
+  # Set ImageMagick Paperclip Access ($ which convert)
+  Paperclip.options[:command_path] = "/usr/bin/"
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

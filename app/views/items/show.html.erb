@@ -1,19 +1,13 @@
-<h1>
-  <%= @item.name %>
-</h1>
+<%#= image_tag @item.item_image.url(:medium) %>
 
-<h3>
-  <strong>Bid Price:</strong>
-  <%= number_to_currency(@item.price) %>
-</h3>
+<h1><%= @item.name %></h1>
 
-<p>
-  <strong>Description:</strong>
-  <%= @item.description %>
-</p>
+<h3>Seller: <%= @item.seller.profile.username %></h3>
 
-<!-- Test Create Bid Button -->
-<%#= link_to 'Create Bid', controller: "items", action: "create_bid", item: @item.id %>
+<h3>Bid Price: <%= number_to_currency(@item.price) %></h3>
+
+<h3>Description:</h3>
+<p><%= @item.description %></p>
 
 <br />
 
@@ -28,8 +22,7 @@
         <% end %>
     </article>
 
-    <!-- Convert @item.price to stripe currency -->
-    <% @stripe_price = @item.price * 100 %>
+<h3>Interested in this item? Bid now!</h3>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -39,7 +32,7 @@
           data-currency="AUD"
           data-locale="auto">
   </script>
-  <% end %>
+<% end %>
 
 <hr>
 <%= link_to 'Edit', edit_item_path(@item) %> |

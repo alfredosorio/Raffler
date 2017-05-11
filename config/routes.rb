@@ -5,15 +5,13 @@ Rails.application.routes.draw do
   resources :items
   devise_for :users
 
-  resources :winners, only: [:index, :show]
-
   # Stripe
   resources :charges
 
   # Test Create Bid
   get :create_bid, to: 'items#create_bid', as: :create_bid
 
-  # ActionMailer Test Link
+  # ActionMailer Test Links
   get :send_winner_email, to: 'bids#send_winner_email', as: :send_winner_email
   get :send_seller_email, to: 'bids#send_seller_email', as: :send_seller_email
 end

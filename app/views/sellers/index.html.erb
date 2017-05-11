@@ -7,8 +7,7 @@
     <tr>
       <th>User</th>
       <th>Seller rating</th>
-      <th>Item</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -17,7 +16,6 @@
       <tr>
         <td><%= seller.user %></td>
         <td><%= seller.seller_rating %></td>
-        <td><%= seller.item %></td>
         <td><%= link_to 'Show', seller %></td>
         <td><%= link_to 'Edit', edit_seller_path(seller) %></td>
         <td><%= link_to 'Destroy', seller, method: :delete, data: { confirm: 'Are you sure?' } %></td>
