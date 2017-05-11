@@ -15,7 +15,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings
 
   # Paperclip - AWS Configs
-  config.paperclip_defaults = { s3_host_name: "s3-#{ENV['AWS_REGION']}.amazonaws.com", }
+  config.paperclip_defaults = {
   storage: :s3,
   s3_credentials: {
     bucket: ENV.fetch('S3_BUCKET_NAME'),
