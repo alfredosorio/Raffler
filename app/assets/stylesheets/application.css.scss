@@ -13,5 +13,8 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
+ @import 'jquery-ui/core.css';
+ @import 'jquery-ui/datepicker.css';
+ @import 'jquery-ui/theme.css';
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
