@@ -1,6 +1,6 @@
-<h1>Welcome to Raffler!</h1>
-
-<%= link_to 'What is Raffler?', 'https://1drv.ms/p/s!AtM30fNCNt04mhfA-JqnUmBgtnfK' %>
-
-<h3><%= link_to 'Sign Up', new_user_registration_path  %></h3>
-<h3><%= link_to 'Login', new_user_session_path  %></h3>
+<h1>Welcome to RAFFLER online</h1>
+<% if (user_signed_in?) %>
+  <h2>It's great to see you again, <%= current_user.profile.first_name %>!</h2>
+  <p>Please feel free to roam around the website</p>
+  <strong>What is Raffler?</strong>
+<% end %>
