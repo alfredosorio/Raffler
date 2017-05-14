@@ -19,6 +19,7 @@
 
       <div class="media-body">
         <h4><%= link_to "#{item.name}", item, class: "media-heading" %></h4>
+        <p>Draw Schedule: <strong><%= distance_of_time_in_words(Time.now, item.created_at + 7.days) %></strong></p>
         <small>Seller: <%= link_to "#{item.seller.profile.username}" , seller_path(item.seller.id) %></small><br>
         <small>Added: <%= time_ago_in_words(item.created_at) %> ago</small><br>
         <small><em>Free Shipping</em></small>

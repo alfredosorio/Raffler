@@ -46,7 +46,7 @@ Item.create!([
     description: 'iPad Pro is more than the next generation of iPad — it’s an uncompromising vision of personal computing for the modern world. It puts incredible power that leaps past most portable PCs at your fingertips. It makes even complex work as natural as touching, swiping or writing with a pencil. And whether you choose the 12.9-inch model or the 9.7-inch model, iPad Pro is more capable, versatile and portable than anything that’s come before. In a word, super.',
     price: 15.0,
     item_image_file_name: "IPR97W128D_B_ipad_pro_9_7_wifi_128gb_gold.jpg",
-    created_at: "2017-05-08 12:26:24"
+    created_at: "2017-05-07 12:26:24"
   },
 
   {

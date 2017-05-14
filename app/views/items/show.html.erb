@@ -26,7 +26,7 @@
         <% end %>
     </article>
 
-<h4>Interested in this item? Bid now!</h4>
+<p class="text-danger">This draw will begin in <strong><%= distance_of_time_in_words(Time.now, @item.created_at + 7.days) %></strong>. Don't miss out, bid now!</p>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -37,3 +37,5 @@
           data-locale="auto">
   </script>
 <% end %>
+<hr>
+<img src="https://www.merchantequip.com/image/?logos=v|m|a|dc&height=32" alt="Merchant Equipment Store Credit Card Logos"/>
