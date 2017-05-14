@@ -98,7 +98,7 @@ Item.create!([
     name: 'Jordan Retro 11 - Men\'s, Size 10.5',
     description: 'The Jordan Retro 11 is a retro version of the top-performing shoe that helped MJ deliver a 72-win season, his fourth ring and an All-Star/Finals MVP sweep. It\'s constructed with a full-grain leather and sueded upper. It also features a polyurethane midsole with full-length Air-Sole® unit in the forefoot and heel and a solid and clear rubber sole with cylindrical traction pattern. Removable insole. Wt. 14.3 oz.',
     price: 22.0,
-    item_image_file_name: "jordanshoes.png",
+    item_image_file_name: "jordanshoes 23.23.43.png",
     created_at: "2017-05-10 12:26:24"
   },
 
@@ -107,7 +107,7 @@ Item.create!([
     name: 'Jordan 6 Rings - Men\'s, Size 11',
     description: 'The Jordan 6 Rings shoe incorporates key features from each shoe that MJ wore while stacking up the championship rings in Chicago. Celebrate the history of Jordan with this hybrid design that takes its cues from six legendary Jordan shoe styles. For Jordan fans and sneakerheads, the 6 Rings is a must-have due to the historic significance the shoe represents. The best of six championship rolled up into one title-worthy Jordan shoe.',
     price: 20.0,
-    item_image_file_name: "jordan_6_rings.png",
+    item_image_file_name: "jordan_6_rings 23.23.43.png",
     created_at: "2017-05-12 12:26:24"
   }
 ])
