@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   # Static Pages
   root "pages#welcome", page: "welcome"
+  get "pages/about"
 
   # ActionMailer Test Links
   get :send_winner_email, to: 'bids#send_winner_email', as: :send_winner_email

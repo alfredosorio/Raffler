@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<!-- Breadcrumbs -->
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><%= link_to 'Home', root_path %></li>
+  <li class="breadcrumb-item active"><%= 'Items' %></li>
+</ol>
 
 <%= form_tag(items_path, method: :get) do %>
   <%= text_field_tag :query %>
@@ -23,8 +27,3 @@
     </div>
   <hr />
 <% end %>
-
-<br>
-
-<%= link_to 'New Item', new_item_path %> |
-<%= link_to 'Bids', bids_path  %>

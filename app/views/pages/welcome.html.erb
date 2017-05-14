@@ -1,7 +1,84 @@
-<h1>Welcome to RAFFLER online.</h1>
-<% if (user_signed_in?) %>
-  <h2 class="text-muted">It's great to see you again, <%= current_user.profile.first_name %>.</h2>
-    <h3>What is Raffler?</h3>
-  <% else %>
-    <h2>Please LOGIN or REGISTER using the links above.</h2>
-<% end %>
+<div class="jumbotron">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="<%= asset_path('welcome_bg_1.gif') %>">
+          <div class="carousel-caption">
+            <h1>Welcome to Raffler</h1>
+            <h3>The marketplace where you can potentially buy something for a lot, lot less!</h3><br>
+            <%= link_to 'Find out more', pages_about_path, class: "btn btn-primary btn-md" %><br><br>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="<%= asset_path('welcome_bg_2.gif') %>">
+          <div class="carousel-caption">
+            <h2>Sign Up Today!</h2>
+            <h3>Register now and see today's deals.</h3>
+            <h4>You can become a seller immediately after you sign up!</h4><br>
+            <%= button_to 'Register', new_user_registration_path, method: :get, class: "btn btn-danger" %><br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Placeholders -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">RAFFLER FEATURED ITEM 1</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer"><button class="btn btn-primary btn-md">Bid now!</button></div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">RAFFLER FEATURED ITEM 2</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer"><button class="btn btn-primary btn-md">Bid now!</button></div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">RAFFLER FEATURED ITEM 3</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer"><button class="btn btn-primary btn-md">Bid now!</button></div>
+      </div>
+    </div>
+  </div>
+</div><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">RAFFLER FEATURED ITEM 4</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer"><button class="btn btn-primary btn-md">Bid now!</button></div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">RAFFLER FEATURED ITEM 5</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer"><button class="btn btn-primary btn-md">Bid now!</button></div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">RAFFLER FEATURED ITEM 6</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer"><button class="btn btn-primary btn-md">Bid now!</button></div>
+      </div>
+    </div>
+  </div>
+</div><br><br>

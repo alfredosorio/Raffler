@@ -2,18 +2,45 @@
 
 <h2> Draw for item: <%= @bid.item.name %> </h2>
 <%= image_tag @bid.item.item_image.url(:medium) %>
-<h3> Bid Price: <%= number_to_currency(@bid.item.price) %> </h3>
-<h3> Seller: <%= @bid.seller.profile.username %> </h3>
-<h3> Total Draw Value: <%= number_to_currency(@draw_total) %> </h3>
-<h3> Winner Drawn: <%= @winner.profile.username %> </h3>
+
+<h3> Draw Details: </h3>
+<table class="table table-sm">
+  <tbody>
+    <tr>
+      <th scope="row">Bid Price:</th>
+      <td><%= number_to_currency(@bid.item.price) %></td>
+    </tr>
+    <tr>
+      <th scope="row">Seller:</th>
+      <td><%= @bid.seller.profile.username %></td>
+    </tr>
+    <tr>
+      <th scope="row">Total Draw Value:</th>
+      <td><%= number_to_currency(@draw_total) %></td>
+    </tr>
+    <tr>
+      <th scope="row">Winner Drawn:</th>
+      <td><%= @winner.profile.username %></td>
+    </tr>
+  </tbody>
+</table>
 
 <h3> Active Bidders: </h3>
-<% @bidders.each do |show| %>
-    <li><%= show.profile.username %></li>
-<% end %>
+<ul class="list-group">
+  <% @bidders.each do |show| %>
+  <li class="list-group-item"><%= show.profile.username %></li>
+  <% end %>
+</ul>
 
 <br>
 
-<%= link_to 'Send Winner Email', controller: "bids", action: "send_winner_email", winner: @winner, item: @bid.item %>
-<br >
-<%= link_to 'Send Seller Email', controller: "bids", action: "send_seller_email", winner: @winner, item: @bid.item, draw_total: @draw_total %>
+<button type="button" class="btn btn-default">
+  <%= link_to 'Send Winner Email', controller: "bids", action: "send_winner_email", winner: @winner, item: @bid.item %>
+</button>
+
+<button type="button" class="btn btn-default">
+  <%= link_to 'Send Seller Email', controller: "bids", action: "send_seller_email", winner: @winner, item: @bid.item, draw_total: @draw_total %>
+</button>
+
+<br><br>
+<%= link_to 'Back', bids_path, class: "btn btn-primary btn-md" %>

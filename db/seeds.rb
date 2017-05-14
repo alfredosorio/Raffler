@@ -33,13 +33,15 @@ Seller.create!([
   { id: 999, user_id: 999, seller_rating: 10 },
 
   { user_id: 1, seller_rating: 8 },
-  { user_id: 2, seller_rating: 9 }
+  { user_id: 2, seller_rating: 9 },
+  { user_id: 3, seller_rating: 6 },
+  { user_id: 4, seller_rating: 7 }
 ])
 
 Item.create!([
 
   {
-    seller_id: 999,
+    seller_id: 3,
     name: "iPad Pro 9.7\" WiFi 128GB Gold",
     description: 'iPad Pro is more than the next generation of iPad — it’s an uncompromising vision of personal computing for the modern world. It puts incredible power that leaps past most portable PCs at your fingertips. It makes even complex work as natural as touching, swiping or writing with a pencil. And whether you choose the 12.9-inch model or the 9.7-inch model, iPad Pro is more capable, versatile and portable than anything that’s come before. In a word, super.',
     price: 15.0,
@@ -57,7 +59,7 @@ Item.create!([
   },
 
   {
-    seller_id: 1,
+    seller_id: 2,
     name: 'Sony X7000D 49" 4K UHD HDR Android Smart LCD LED TV',
     description: 'Discover the amazing world of Sony 4K HDR. It’s the complete home entertainment experience. Discover brilliant Sony 4K HDR picture quality plus a world of movies, TV shows, apps and more with Android TV. Slim and streamlined - with a slim profile this TV blends seamlessly into your living space. It’s perfect for wall mounting while its discreet, narrow bezel puts your focus firmly on the picture, not the frame.',
     price: 25.0,
@@ -75,7 +77,7 @@ Item.create!([
   },
 
   {
-    seller_id: 2,
+    seller_id: 4,
     name: 'Merge Corner Workstation',
     description: 'The Merge Corner Workstation provides plenty of storage and desktop space. It comes with built in drawers for your stationery items and your filing plus a cupboard to organise your loose item',
     price: 10.0,
@@ -84,7 +86,7 @@ Item.create!([
   },
 
   {
-    seller_id: 999,
+    seller_id: 4,
     name: 'MakerBot Replicator 3D Printer',
     description: 'The MakerBot Replicator 3D Printer is designed to streamline and enhance your model making process. It comes with impressive features such as an onboard camera for monitoring your print, a 3.5 inch full colour LCD display for easy operation and a range of connectivity options to suit your needs.',
     price: 50.0,

@@ -8,12 +8,10 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @seller.profile.username %>'s Seller Profile</h1>
 
+<h3 class="text-muted">Seller Rating: <%= @seller.seller_rating %></h3>
+
 <hr>
-<h3>Seller Rating: <%= @seller.seller_rating %></h3>
-
-<label for="input-1" class="control-label">Rate This</label>
-<input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="1">
-
+<h3>Your items for sale:</h3>
 <hr>
 
 <% @seller.items.each do |item| %>
@@ -26,9 +24,14 @@
       <h4><%= link_to "#{item.name}", item, class: "media-heading" %></h4>
       <small>Added: <%= time_ago_in_words(item.created_at) %> ago</small>
       <h3><%= number_to_currency(item.price) %></h2>
+        <button type="button" class="btn btn-default">
+          <%= link_to 'Draw Item Now', controller: "bids", action: "send_winner_email" %>
+        </button>
     </div>
   </div>
 <hr>
 <% end %>
+
+<br><br>
 
 <%= link_to 'Sell An Item', new_item_path, class: "btn btn-primary btn-md" %><br><br>

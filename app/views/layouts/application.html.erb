@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <html lang="en">
     <title>Raffler Online</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   </head>
 
   <body>
-    <%= render 'nav/links' %>
 
     <div class="container">
       <div class="row">
-        <div class="span5"><%= yield %></div>
-        <div class="span4"></div>
+        <div class="span5">
+
+          <%= render 'nav/links' %>
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>

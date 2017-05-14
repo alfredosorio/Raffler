@@ -7,12 +7,11 @@
 
 <%= image_tag @item.item_image.url(:medium) %><br>
 
-<%= is_admin_edit %>
-
 <h1><%= @item.name %></h1>
 <h4 class="text-muted">Seller: <%= @item.seller.profile.username %></h4>
 <h3>Description:</h3>
 <p><%= @item.description %></p>
+<%= is_admin_edit %>
 <hr>
 <h4>Bid Price: <%= number_to_currency(@item.price) %></h4>
 
