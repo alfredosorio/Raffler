@@ -6,20 +6,18 @@
 <% end %>
 
 <br />
-
-<h1>Items Feed</h1>
-
 <hr />
-
-
 <% @items.each do |item| %>
     <div class="media">
       <div class="media-left media-middle">
           <%= link_to image_tag item.item_image.url(:thumb) %>
       </div>
+
       <div class="media-body">
         <h4><%= link_to "#{item.name}", item, class: "media-heading" %></h4>
-        <small>Seller:</small> <%= item.seller.profile.username %>
+        <small>Seller: <%= link_to "#{item.seller.profile.username}" , seller_path(item.seller.id) %></small><br>
+        <small>Added: <%= time_ago_in_words(item.created_at) %> ago</small><br>
+        <small><em>Free Shipping</em></small>
         <h3><%= number_to_currency(item.price) %></h2>
       </div>
     </div>
@@ -28,6 +26,5 @@
 
 <br>
 
-<%= link_to 'New Item', new_item_path %>
-
+<%= link_to 'New Item', new_item_path %> |
 <%= link_to 'Bids', bids_path  %>

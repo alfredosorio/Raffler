@@ -1,6 +1,7 @@
-<h1>Welcome to RAFFLER online</h1>
+<h1>Welcome to RAFFLER online.</h1>
 <% if (user_signed_in?) %>
-  <h2>It's great to see you again, <%= current_user.profile.first_name %>!</h2>
-  <p>Please feel free to roam around the website</p>
-  <strong>What is Raffler?</strong>
+  <h2 class="text-muted">It's great to see you again, <%= current_user.profile.first_name %>.</h2>
+    <h3>What is Raffler?</h3>
+  <% else %>
+    <h2>Please LOGIN or REGISTER using the links above.</h2>
 <% end %>

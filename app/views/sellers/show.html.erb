@@ -1,27 +1,34 @@
+<!-- Breadcrumbs -->
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><%= link_to 'Home', root_path %></li>
+  <li class="breadcrumb-item"><%= link_to 'Items', items_path %></li>
+  <li class="breadcrumb-item active"><%= @seller.profile.username %></li>
+</ol>
+
 <p id="notice"><%= notice %></p>
+<h1><%= @seller.profile.username %>'s Seller Profile</h1>
 
-<h1>Your Seller Dashboard</h1>
+<hr>
+<h3>Seller Rating: <%= @seller.seller_rating %></h3>
 
-<h2><%= @seller.profile.first_name %> <%= @seller.profile.last_name %></h2>
+<label for="input-1" class="control-label">Rate This</label>
+<input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="1">
 
-<h2>
-  <strong>Seller Rating:</strong>
-  <%= @seller.seller_rating %>
-</h2>
+<hr>
 
 <% @seller.items.each do |item| %>
-  <table>
-      <tbody>
-          <tr>
-            <td><%= image_tag item.item_image.url(:thumb) %></td>
-            <td><p><%= link_to "#{item.name}", item %></p></td>
-            <td><p> Seller: <%= item.seller.profile.username %></p></td>
-            <td><p><%= number_to_currency(item.price) %></p></td>
-            <td><p><%= link_to 'Draw Item', bid_path(item.id) %></p></td>
-          </tr>
-      </tbody>
-    </table>
-  <hr />
+  <div class="media">
+    <div class="media-left media-middle">
+        <%= link_to image_tag item.item_image.url(:thumb) %>
+    </div>
+
+    <div class="media-body">
+      <h4><%= link_to "#{item.name}", item, class: "media-heading" %></h4>
+      <small>Added: <%= time_ago_in_words(item.created_at) %> ago</small>
+      <h3><%= number_to_currency(item.price) %></h2>
+    </div>
+  </div>
+<hr>
 <% end %>
 
-<%= link_to 'Sell An Item', new_item_path %>
+<%= link_to 'Sell An Item', new_item_path, class: "btn btn-primary btn-md" %><br><br>

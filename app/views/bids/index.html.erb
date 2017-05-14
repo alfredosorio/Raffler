@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+<!-- Breadcrumbs -->
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><%= link_to 'Home', root_path %></li>
+  <li class="breadcrumb-item"><%= link_to 'Items', items_path %></li>
+  <li class="breadcrumb-item active">Bids</li>
+</ol>
 
 <h1>Bids Admin Console</h1>
 
@@ -7,29 +12,34 @@
   <%= submit_tag 'Search Item' %>
 <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Bidder</th>
-      <th>Item</th>
-      <th>Seller</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @bids.each do |bid| %>
+<div class="container">
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= bid.user.profile.username %></td>
-        <td><%= bid.item.name %></td>
-        <td><%= bid.seller.profile.username %></td>
-        <td><%= link_to 'Draw Details', bid %></td>
-        <td><%#= link_to 'Edit', edit_bid_path(bid) %></td>
-        <td><%#= link_to 'Destroy', bid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Item</th>
+        <th>Seller</th>
+        <th>First Bid Time</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <!-- Only display the bids for each unique item -->
+      <% @bids.map(&:item).uniq.each do |show| %>
+        <tr>
+          <td><%= show.name %></td>
+          <td><%= show.seller.profile.username %></td>
+          <!-- Display the earliest bid from each collection -->
+          <td><% show.bids.order(:created_at).limit(1).each do |first_bid| %>
+            <%= first_bid.created_at.strftime('%B %e at %l:%M %p %Z') %>
+            <small>(<%= time_ago_in_words(first_bid.created_at) %> ago)</small>
+            <% end %>
+          </td>
+          <td><%= link_to 'Draw Details', bid_path(show.bids.map(&:id)), class: "btn btn-primary btn-md" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 
