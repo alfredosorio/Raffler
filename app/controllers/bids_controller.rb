@@ -14,19 +14,16 @@ class BidsController < ApplicationController
     # shuffle bidders (7) times and pick first from the array
     7.times { @shuffled = @bidders.shuffle }
     @winner = @shuffled.first
-
-    # To TOGGLE: comment line below, uncomment @winner = params[:winner], uncomment #(winner)
-    # perform_draw(@item, @winner, @draw_total)
-    # send_winner_email(@item, @winner)
-    # send_seller_email(@item, @winner, @draw_total)
   end
 
-  def perform_draw#(item, winner, draw_total)
+  def perform_draw
     @item = Item.find(params[:item])
     @winner = Bid.find(params[:winner])
     @draw_total = params[:draw_total]
-    UserMailer.send_winner_email(@item, @winner).deliver
-    UserMailer.send_seller_email(@item, @winner, @draw_total).deliver
+
+    # for presentation, set to 15s. actual = (run_at: (@item.created_at + 7.days))
+    UserMailer.delay(run_at: 15.seconds.from_now).send_winner_email(@item, @winner)
+    UserMailer.delay(run_at: 15.seconds.from_now).send_seller_email(@item, @winner, @draw_total)
     redirect_to bid_path(@item.id), notice: "Emails have been sent to: #{@item.seller.user.email} and #{@winner.user.email}"
   end
 
