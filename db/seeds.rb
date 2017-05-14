@@ -116,13 +116,16 @@ Item.create!([
 Bid.create!([
   { user_id: 1, item_id: 1, created_at: "2017-05-12 13:53:13" },
   { user_id: 2, item_id: 1, created_at: "2017-05-10 09:24:24" },
-  { user_id: 3, item_id: 1, created_at: "2017-05-06 08:35:13" },
   { user_id: 4, item_id: 1, created_at: "2017-05-07 10:10:42" },
   { user_id: 5, item_id: 1, created_at: "2017-05-09 11:09:53" },
   { user_id: 6, item_id: 2, created_at: "2017-05-06 13:46:55" },
-  { user_id: 1, item_id: 2, created_at: "2017-05-06 22:59:01" },
   { user_id: 2, item_id: 2, created_at: "2017-05-08 21:45:10" },
   { user_id: 3, item_id: 3, created_at: "2017-05-07 20:43:09" },
   { user_id: 4, item_id: 3, created_at: "2017-05-05 14:01:08" },
-  { user_id: 5, item_id: 3, created_at: "2017-05-06 11:23:10" }
+  { user_id: 5, item_id: 3, created_at: "2017-05-06 11:23:10" },
+  { user_id: 1, item_id: 4, created_at: "2017-05-12 22:53:13" },
+  { user_id: 3, item_id: 4, created_at: "2017-05-06 09:35:13" },
+  { user_id: 4, item_id: 4, created_at: "2017-05-07 10:10:42" },
+  { user_id: 5, item_id: 4, created_at: "2017-05-09 15:09:53" },
+  { user_id: 6, item_id: 4, created_at: "2017-05-06 13:45:55" }
 ])

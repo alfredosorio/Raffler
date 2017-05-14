@@ -42,5 +42,9 @@
   <%= link_to 'Send Seller Email', controller: "bids", action: "send_seller_email", winner: @winner, item: @bid.item, draw_total: @draw_total %>
 </button>
 
+<button type="button" class="btn btn-default">
+  <%= link_to 'Perform Draw', controller: "bids", action: "perform_draw", winner: @winner, item: @bid.item, draw_total: @draw_total %>
+</button>
+
 <br><br>
 <%= link_to 'Back', bids_path, class: "btn btn-primary btn-md" %>

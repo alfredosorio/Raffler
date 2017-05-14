@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   # ActionMailer Test Links
   get :send_winner_email, to: 'bids#send_winner_email', as: :send_winner_email
   get :send_seller_email, to: 'bids#send_seller_email', as: :send_seller_email
+  get :perform_draw, to: 'bids#perform_draw', as: :perform_draw
 end
