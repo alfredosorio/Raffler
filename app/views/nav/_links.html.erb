@@ -52,6 +52,8 @@
             <% if user_signed_in? && !(current_user.seller.nil?) %>
               <li role="separator" class="divider"></li>
               <li><%= link_to 'Your Seller Dashboard', seller_path(current_user.seller.id) %></li>
+            <% else %>
+              <li><%= link_to 'Seller Registration', new_seller_path %></li>
             <% end %>
 
             <% if user_signed_in? && current_user.id == 999 %>
