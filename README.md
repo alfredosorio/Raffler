@@ -1,6 +1,6 @@
-## What is Raffler?
+# What is Raffler?
 
-### A marketplace where you can potentially buy something for a lot, lot less.
+Raffler is a marketplace where you can potentially buy something for a lot, lot less.
 
 *For a general outline on how the system works, see this* [infographic](https://1drv.ms/p/s!AtM30fNCNt04mhfA-JqnUmBgtnfK)
 
