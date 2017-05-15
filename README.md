@@ -105,7 +105,7 @@ The application overrides the standard UTC Timezone to cater for accurate AEST +
 
 ---
 
-### Notable challenges
+# Notable Challenges
 #### Converting the current app from SQLite3 to Postgresql database, then deploying to Heroku.
 
 Errors were encountered when running `$ heroku run rails db:migrate`
@@ -137,9 +137,9 @@ I then found that migration files (in order) created:
 4. Sellers
 5. Profiles
 
-**4.) Switched order of create_sellers_rb migration to be created after devise_create_users (rename generated date/time)**
+**4.) SOLUTION: Switched order of create_sellers_rb migration to be created after devise_create_users (rename generated date/time)**
 
-LEARNT THE IMPORTANCE OF READING LOGS i.e.: heroku logs
+The heroku migration was completed without any errors at this stage and the app was working as required.
 
 ---
 
@@ -149,7 +149,7 @@ Error encountered during bid placement. Screenshot [here](https://trello-attachm
 
 #### Troubleshooting approach:
 
-1**.) Ran 'heroku logs' in terminal. Found the following clue:***
+**1.) Ran 'heroku logs' in terminal. Found the following clue:***
 
 ```
 2017-05-11T05:41:07.705881+00:00 app[web.1]: F, [2017-05-11T05:41:07.705839 #4] FATAL -- : [420a3324-2717-47f2-9fc7-8ac6ef084b7d] Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 25)
@@ -178,6 +178,6 @@ config.action_mailer.smtp_settings = {
 }
 ```
 
-**5.) After a simple copy/paste, VOILA! Error is solved and emails are sent successfully.**
+**5.) SOLUTION: After a simple copy/paste, VOILA! Error is solved and emails are sent successfully.**
 
 Further research, technical notes and approaches have been covered on the Trello board (link above).
