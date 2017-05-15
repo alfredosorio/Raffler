@@ -141,7 +141,6 @@ I then found that migration files (in order) created:
 
 The heroku migration was completed without any errors at this stage and the app was working as required.
 
----
 
 #### ActionMailer error when deployed to production
 
