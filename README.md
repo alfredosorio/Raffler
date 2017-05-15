@@ -9,6 +9,10 @@ For a general outline on how the system works, see this [infographic](https://1d
 
 The development outline for this project can be found on this Trello [board](https://trello.com/b/GtGdDZ9l/raffler)
 
+The mockup board can be found below:
+
+[mockup board](https://github.com/alfredosorio/Raffler/blob/master/app/assets/images/Screen%20Shot%202017-05-15%20at%2010.16.34.png)
+
 ---
 
 Gems used in this project:
