@@ -5,7 +5,7 @@
 *For a general outline on how the system works, see this* [infographic](https://1drv.ms/p/s!AtM30fNCNt04mhfA-JqnUmBgtnfK)
 
 
-#### Project resources
+### Project resources
 - The live version of the project can be seen [here](http://raffler-project.herokuapp.com/)
 
 - The development outline for this project can be found on this Trello [board](https://trello.com/b/GtGdDZ9l/raffler)
@@ -63,7 +63,9 @@ Start background process to handle jobs in delayed_jobs table:
 - Bootstrap - front-end templating
 
 
-#### Project Details
+# Project Details
+
+### Technical notes
 This project is built around a 2-sided marketplace structure. Users can play the role of a buyer(bidder) or a seller. There is also an admin user that has all the site's functionality exposed only for that particular user.
 
 It has been uploaded to Heroku, with a Postgresql backend and images are automatically uploaded to AWS S3 to address Heroku's shortfalls.
@@ -80,18 +82,28 @@ It can be seen on the Bids controller where it delays the task for 15 seconds:
 
 In a practical environment, the delay will run within 7 days as per the requirements of the project (where each item will be automatically drawn 7 days from its creation date.)
 
+### Choosing a winner
 The conceptual way a bidder is chosen is based on an article from [Dartmouth University](https://www.dartmouth.edu/~chance/course/topics/winning_number.html) where it states:
 
 > IT takes just seven ordinary, imperfect shuffles to mix a deck of cards
 thoroughly, researchers have found. Fewer are not enough and more do not
 significantly improve the mixing.
 
-I implemented this idea in the app by using ruby's `shuffle`method:
+I implemented this idea in the app by using ruby's `shuffle` method:
 
 ```
 7.times { shuffled = bidders.shuffle }
 winner = shuffled.first
 ```
+
+#### Set Timezone to Melbourne (UTC + 1000)
+
+In application.rb, I added:
+`config.time_zone = "Melbourne"`
+
+The application overrides the standard UTC Timezone to cater for accurate AEST +1000 time. I chose to do this so that time attributes in the project i.e.: `created_at` and `updated_at` are referenced in a local time. It also helped during testing where I could simply reference the local system time.
+
+---
 
 ### Notable challenges
 #### Converting the current app from SQLite3 to Postgresql database, then deploying to Heroku.
@@ -167,3 +179,5 @@ config.action_mailer.smtp_settings = {
 ```
 
 **5.) After a simple copy/paste, VOILA! Error is solved and emails are sent successfully.**
+
+Further research, technical notes and approaches have been covered on the Trello board (link above).
