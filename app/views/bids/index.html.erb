@@ -8,8 +8,8 @@
 <h1>Bids Admin Dashboard</h1>
 
 <%= form_tag(items_path, method: :get) do %>
-  <%= text_field_tag :query %>
-  <%= submit_tag 'Search Item' %>
+<%= text_field_tag :query %>
+<%= submit_tag 'Search Item' %>
 <% end %>
 
 <div class="container">
@@ -27,19 +27,22 @@
     <tbody>
       <!-- Only display the bids for each unique item -->
       <% @bids.map(&:item).uniq.each do |show| %>
-        <tr>
-          <td><%= show.name %></td>
-          <td><%= show.seller.profile.username %></td>
-          <!-- Display the earliest bid from each collection -->
-          <td><% show.bids.order(:created_at).limit(1).each do |first_bid| %>
-            <%= first_bid.created_at.strftime('%B %e at %l:%M %p %Z') %>
-            <small>(<%= time_ago_in_words(first_bid.created_at) %> ago)</small>
-            <% end %>
-          </td>
-          <td><span class="badge badge-default badge-pill"><%= show.bids.count %></span></td>
-          <td><%= distance_of_time_in_words(Time.now, show.created_at + 7.days) %></td>
-          <td><%= link_to 'Draw Details', bid_path(show.bids.map(&:id).first), class: "btn btn-primary btn-md" %></td>
-        </tr>
+      <tr>
+        <td><%= show.name %></td>
+        <td><%= show.seller.profile.username %></td>
+        <!-- Display the earliest bid from each collection -->
+        <td><% show.bids.order(:created_at).limit(1).each do |first_bid| %>
+          <%= first_bid.created_at.strftime('%B %e at %l:%M %p %Z') %>
+          <small>(<%= time_ago_in_words(first_bid.created_at) %>
+            ago)</small>
+          <% end %>
+        </td>
+        <td>
+          <span class="badge badge-default badge-pill"><%= show.bids.count %></span>
+        </td>
+        <td><%= distance_of_time_in_words(Time.now, show.created_at + 7.days) %></td>
+        <td><%= link_to 'Draw Details', bid_path(show.bids.map(&:id).first), class: "btn btn-primary btn-md" %></td>
+      </tr>
       <% end %>
     </tbody>
   </table>

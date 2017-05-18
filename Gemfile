@@ -22,13 +22,13 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'aws-sdk', '~> 2.3'
+gem 'bootstrap-sass'
+gem 'delayed_job_active_record'
 gem 'devise'
 gem 'figaro'
+gem 'paperclip', `~> 5.0.0`
 gem 'stripe'
-gem "paperclip", "~> 5.0.0"
-gem 'aws-sdk', '~> 2.3'
-gem 'delayed_job_active_record'
-gem 'bootstrap-sass'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

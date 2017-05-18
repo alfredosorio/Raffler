@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-</head>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+  </head>
 
-<body>
-  <h1>Hi <%= @seller.profile.first_name %>,</h1>
+  <body>
+    <h1>Hi
+      <%= @seller.profile.first_name %>,</h1>
 
-  <h2>Your item has just been sold on Raffler!</h2>
+    <h2>Your item has just been sold on Raffler!</h2>
 
-  <h3><%= @item.name %></h3>
+    <h3><%= @item.name %></h3>
 
-  <p><%= @item.description %></p>
+    <p><%= @item.description %></p>
 
-  <h2>You have made a total of <%= number_to_currency(@draw_total) %> from this sale.</h2>
+    <h2>You have made a total of
+      <%= number_to_currency(@draw_total) %>
+      from this sale.</h2>
 
-<hr />
+    <hr/>
 
-  <p>To login to the site, just follow this <a href="<%= @url %>">link</a>.</p>
+    <p>To login to the site, just follow this
+      <a href="<%= @url %>">link</a>.</p>
 
-  <p>Thank you for contributing to Raffler and have a great day!</p>
-</body>
+    <p>Thank you for contributing to Raffler and have a great day!</p>
+  </body>
 
 </html>

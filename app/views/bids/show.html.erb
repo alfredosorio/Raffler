@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h2> Draw for item: <%= @bid.item.name %> </h2>
+<h2>
+  Draw for item:
+  <%= @bid.item.name %>
+</h2>
 <%= image_tag @bid.item.item_image.url(:medium) %>
 
-<h3> Draw Details: </h3>
+<h3>
+  Draw Details:
+</h3>
 <table class="table table-sm">
   <tbody>
     <tr>
@@ -25,7 +30,9 @@
   </tbody>
 </table>
 
-<h3> Active Bidders: </h3>
+<h3>
+  Active Bidders:
+</h3>
 <ul class="list-group">
   <% @bidders.each do |show| %>
   <li class="list-group-item"><%= show.profile.username %></li>

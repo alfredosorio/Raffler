@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-</head>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+  </head>
 
-<body>
-  <h1>Hi <%= @winner.profile.first_name %>,</h1>
+  <body>
+    <h1>Hi
+      <%= @winner.profile.first_name %>,</h1>
 
-  <h2>Congratulations! You have won the following item on Raffler!</h2>
+    <h2>Congratulations! You have won the following item on Raffler!</h2>
 
   </p>
 
@@ -16,9 +17,10 @@
 
   <p><%= @item.description %></p>
 
-<hr />
+  <hr/>
 
-  <p>To login to the site, just follow this <a href="<%= @url %>">link</a>.</p>
+  <p>To login to the site, just follow this
+    <a href="<%= @url %>">link</a>.</p>
 
   <p>Thank you for bidding on Raffler. We hope you see you again!</p>
 </body>

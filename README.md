@@ -65,6 +65,10 @@ Start background process to handle jobs in delayed_jobs table:
 
 # Project Details
 
+Login Details:
+admin@raffler.com : password
+Role: Admin
+
 ### Technical notes
 This project is built around a 2-sided marketplace structure. Users can play the role of a buyer(bidder) or a seller. There is also an admin user that has all the site's functionality exposed only for that particular user.
 
