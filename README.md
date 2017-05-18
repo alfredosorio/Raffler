@@ -66,7 +66,9 @@ Start background process to handle jobs in delayed_jobs table:
 # Project Details
 
 Login Details:
+
 admin@raffler.com : password
+
 Role: Admin
 
 ### Technical notes
