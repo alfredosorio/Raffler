@@ -109,8 +109,6 @@ In application.rb, I added:
 
 The application overrides the standard UTC Timezone to cater for accurate AEST +1000 time. I chose to do this so that time attributes in the project i.e.: `created_at` and `updated_at` are referenced in a local time. It also helped during testing where I could simply reference the local system time.
 
----
-
 # Notable Challenges
 #### Converting the current app from SQLite3 to Postgresql database, then deploying to Heroku.
 
