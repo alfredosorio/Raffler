@@ -54,10 +54,10 @@ Start background process to handle jobs in delayed_jobs table:
 ### Screenshots
 
 The Today's Sales Page <br />
-<img src="app/assets/images/todays_sales_screenshot.png" alt="The Today's Sales Page" style="width:500px; border:1px solid;" />
+<img src="app/assets/images/todays_sales_screenshot.png" alt="The Today's Sales Page" style="width:400px; border:1px solid black;" />
 
 The Admin Dashboard <br />
-<img src="app/assets/images/admin_dashboard_screenshot.png" alt="The Admin Dashboard" style="width:500px; border:1px solid;" />
+<img src="app/assets/images/admin_dashboard_screenshot.png" alt="The Admin Dashboard" style="width:400px; border:1px solid black;" />
 
 
 ### Built with:
