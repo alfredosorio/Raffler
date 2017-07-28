@@ -51,6 +51,15 @@ Migrate seeded data:
 Start background process to handle jobs in delayed_jobs table:
 `heroku run rails jobs:work`
 
+### Screenshots
+
+The Today's Sales Page <br />
+<img src="app/assets/images/todays_sales_screenshot.png" alt="The Today's Sales Page" style="width:500px;" />
+
+The Admin Dashboard <br />
+<img src="app/assets/images/admin_dashboard_screenshot.png" alt="The Admin Dashboard" style="width:500px;" />
+
+
 ### Built with:
 
 - [Devise](https://github.com/plataformatec/devise) - for user authentication and session management
